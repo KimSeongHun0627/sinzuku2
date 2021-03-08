@@ -56,8 +56,6 @@ namespace sinzuku
 
         private void Receive() // 서버로 부터 값 받아오기
         {
-            AddTextDelegate AddList = new AddTextDelegate(stuCount.AppendText);
-            AddTextDelegate AddHand = new AddTextDelegate(handsCountBox.AppendText);
 
             while (Connected)
             {
@@ -65,28 +63,33 @@ namespace sinzuku
                 if (stream != null && stream.CanRead)
                 {
                     string tempStr = Reader.ReadLine();
-
-                    result = tempStr.Split(new char[] { '-' });
+                    if (tempStr != null)
+                        result = tempStr.Split(new char[] { '-' });
+                    else {
+                        Application.Exit();
+                    }
+                    
                     if (result[0] == "userName")
                     {
-                        deleteList();
+                        //deleteList();
 
                         TextBox newText = new TextBox();
-                        Invoke(AddList, memberCount.ToString());
-                        CrossThreadWorkHelper.AddTestCrossThread(handsCountBox, handsCount.ToString()); ;
+                        memberCount++;
+                        CrossThreadWorkHelper.AddTestCrossThread(stuCount, memberCount.ToString()); ;
+                        CrossThreadWorkHelper.AddTestCrossThread(handsCountBox, handsCount.ToString());
                         if (memberCount * stuPanel.Height > panel2.Height)
                             stuPanel.Width -= 20;
 
                         newText = new TextBox();
-                        newText.Top = memberCount - stuPanel.Height + 5 * memberCount - 1 + stuPanel.Height / 2;
+                        newText.Top = (memberCount) * (stuPanel.Height + 5 ) + stuPanel.Height / 2;
                         newText.ReadOnly = true;
                         newText.Visible = true;
                         newText.Text = result[1].ToString();
 
                         CrossThreadWorkHelper.AddTestBoxCrossThread(panel2, newText);
                         
-
                     }
+
                     else if (result[0] == "hand")
                     {
                         handsCount++;
@@ -96,7 +99,6 @@ namespace sinzuku
                     {
                         Connected = false;
                         Application.Exit();
-                    
                     }
 
                     Client = new TcpClient();
@@ -116,7 +118,7 @@ namespace sinzuku
         private void handsReset_Click(object sender, EventArgs e)
         {
             connect();
-            Writer.WriteLine("handreset-" + textBox1.Text); // 보내버리기
+            Writer.WriteLine("handreset-" + roomId.Text); // 보내기
             Writer.Flush();
             handsCount = 0;
             handsCountBox.Text = handsCount.ToString();
@@ -125,9 +127,9 @@ namespace sinzuku
         private void startClass_Click(object sender, EventArgs e)
         {
             connect();
-            if (textBox1.Text != null)
+            if (roomId.Text != null)
             {
-                Writer.WriteLine("list-" + textBox1.Text); // 보내버리기
+                Writer.WriteLine("list-" + roomId.Text); // 보내기
             }
             else
             {
@@ -144,7 +146,7 @@ namespace sinzuku
         private void EndClass_Click(object sender, EventArgs e)
         {
             connect();
-            Writer.WriteLine("endroom-" + textBox1.Text); // 보내버리기
+            Writer.WriteLine("endroom-" + roomId.Text); // 보내기
             Writer.Flush();
         }
 

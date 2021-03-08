@@ -37,7 +37,7 @@ namespace sinzuku
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.roomId = new System.Windows.Forms.TextBox();
             this.startClass = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
             this.EndClass = new System.Windows.Forms.Button();
@@ -109,7 +109,7 @@ namespace sinzuku
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.roomId);
             this.panel1.Controls.Add(this.startClass);
             this.panel1.Controls.Add(this.refresh);
             this.panel1.Controls.Add(this.EndClass);
@@ -141,12 +141,12 @@ namespace sinzuku
             this.label2.TabIndex = 10;
             this.label2.Text = "방코드";
             // 
-            // textBox1
+            // roomId
             // 
-            this.textBox1.Location = new System.Drawing.Point(398, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 21);
-            this.textBox1.TabIndex = 9;
+            this.roomId.Location = new System.Drawing.Point(398, 3);
+            this.roomId.Name = "roomId";
+            this.roomId.Size = new System.Drawing.Size(76, 21);
+            this.roomId.TabIndex = 9;
             // 
             // startClass
             // 
@@ -254,7 +254,7 @@ namespace sinzuku
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox roomId;
         private System.Windows.Forms.Button startClass;
         private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Button EndClass;
