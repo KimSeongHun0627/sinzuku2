@@ -167,6 +167,7 @@ namespace sinzuku
             this.refresh.TabIndex = 7;
             this.refresh.Text = "새로고침";
             this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Visible = false;
             this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // EndClass

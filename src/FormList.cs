@@ -73,10 +73,9 @@ namespace sinzuku
                     {
                         //deleteList();
 
-                        TextBox newText = new TextBox();
                         memberCount++;
-                        CrossThreadWorkHelper.AddTestCrossThread(stuCount, memberCount.ToString()); ;
-                        CrossThreadWorkHelper.AddTestCrossThread(handsCountBox, handsCount.ToString());
+                        TextBox newText = new TextBox();
+                        CrossThreadWorkHelper.AddTestCrossThread(stuCount, memberCount.ToString());
                         if (memberCount * stuPanel.Height > panel2.Height)
                             stuPanel.Width -= 20;
 
@@ -87,7 +86,6 @@ namespace sinzuku
                         newText.Text = result[1].ToString();
 
                         CrossThreadWorkHelper.AddTestBoxCrossThread(panel2, newText);
-                        
                     }
 
                     else if (result[0] == "hand")
