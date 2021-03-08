@@ -126,7 +126,7 @@ namespace sinzuku
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(170, 9);
+            this.label3.Location = new System.Drawing.Point(281, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 12);
             this.label3.TabIndex = 11;
@@ -135,7 +135,7 @@ namespace sinzuku
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 9);
+            this.label2.Location = new System.Drawing.Point(424, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 10;
@@ -143,7 +143,7 @@ namespace sinzuku
             // 
             // roomId
             // 
-            this.roomId.Location = new System.Drawing.Point(398, 3);
+            this.roomId.Location = new System.Drawing.Point(471, 3);
             this.roomId.Name = "roomId";
             this.roomId.Size = new System.Drawing.Size(76, 21);
             this.roomId.TabIndex = 9;
@@ -194,7 +194,7 @@ namespace sinzuku
             // 
             // handsCountBox
             // 
-            this.handsCountBox.Location = new System.Drawing.Point(249, 3);
+            this.handsCountBox.Location = new System.Drawing.Point(360, 3);
             this.handsCountBox.Name = "handsCountBox";
             this.handsCountBox.ReadOnly = true;
             this.handsCountBox.Size = new System.Drawing.Size(58, 21);
@@ -212,11 +212,11 @@ namespace sinzuku
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(3, 17);
+            this.label1.Location = new System.Drawing.Point(17, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 27);
+            this.label1.Size = new System.Drawing.Size(107, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "학생 수";
             // 
