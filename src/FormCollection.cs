@@ -1319,7 +1319,7 @@ namespace sinzuku
 				}
 			}
 		}
-
+		//수정 필요
 		private bool on = false;
 		private FormList win2 = new FormList();
 

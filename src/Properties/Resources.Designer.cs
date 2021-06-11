@@ -303,9 +303,29 @@ namespace sinzuku.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap sinzuku {
+            get {
+                object obj = ResourceManager.GetObject("sinzuku", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap snap {
             get {
                 object obj = ResourceManager.GetObject("snap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        public static System.Drawing.Bitmap start_button {
+            get {
+                object obj = ResourceManager.GetObject("start_button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

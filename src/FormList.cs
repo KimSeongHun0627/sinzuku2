@@ -30,16 +30,14 @@ namespace sinzuku
         public FormList()
         {
             InitializeComponent();
-            this.Left = SystemInformation.VirtualScreen.Left + Screen.PrimaryScreen.WorkingArea.Right - this.Width;
+            this.Left = Screen.PrimaryScreen.WorkingArea.Right - this.Width; 
+                //SystemInformation.VirtualScreen.Left + Screen.PrimaryScreen.WorkingArea.Right - this.Width;
+            stuCount.Enter += (s, e) => { stuCount.Parent.Focus(); };
+            handsCountBox.Enter += (s, e) => { handsCountBox.Parent.Focus(); };
         }
 
         String IP = "54.146.88.72"; // 접속 할 서버 아이피를 입력
         int port = 3001; // 포트
-
-        private void deleteList()
-        {
-            CrossThreadWorkHelper.DeleteTestBoxCrossThread(panel2);
-        }
 
         private void connect()
         {
@@ -71,20 +69,33 @@ namespace sinzuku
                     
                     if (result[0] == "userName")
                     {
-                        //deleteList();
-
                         memberCount++;
                         TextBox newText = new TextBox();
                         CrossThreadWorkHelper.AddTestCrossThread(stuCount, memberCount.ToString());
                         if (memberCount * stuPanel.Height > panel2.Height)
                             stuPanel.Width -= 20;
 
+                        /* 원래 코드
                         newText = new TextBox();
                         newText.Top = (memberCount) * (stuPanel.Height + 5 ) + stuPanel.Height / 2;
+                        */
+                        
+                        //새로 쓴 코드
+                        if (memberCount % 2 == 1)
+                        {
+                            newText.Top = (memberCount) * (stuPanel.Height + 5) + stuPanel.Height / 2;
+                            newText.Left = name.Left;
+                        }
+                        else {
+                            newText.Top = (memberCount - 1) * (stuPanel.Height + 5) + stuPanel.Height / 2;
+                            newText.Left = stuPanel.Width / 2 + name.Left;
+                        }
+
+                        //원래코드
                         newText.ReadOnly = true;
                         newText.Visible = true;
                         newText.Text = result[1].ToString();
-
+                        newText.Enter += (s, e) => { newText.Parent.Focus(); };
                         CrossThreadWorkHelper.AddTestBoxCrossThread(panel2, newText);
                     }
 
@@ -106,11 +117,6 @@ namespace sinzuku
                     Writer = new StreamWriter(stream);
                 }
             }
-        }
-
-        private void refresh_Click(object sender, EventArgs e)
-        {
-            CrossThreadWorkHelper.AddTestBoxCrossThread(panel2, new TextBox());
         }
 
         private void handsReset_Click(object sender, EventArgs e)
@@ -135,7 +141,6 @@ namespace sinzuku
             }
             Writer.Flush();
 
-            refresh.Enabled = true;
             handsReset.Enabled = true;
             EndClass.Enabled = true;
             startClass.Enabled = false;
